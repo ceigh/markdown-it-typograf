@@ -1,6 +1,20 @@
 {
   "name": "markdown-it-typograf",
   "module": "index.js",
+  "scripts": {
+    "set:hooks": "bunx simple-git-hooks",
+    "dev": "bun test --watch",
+    "format": "bun prettier . --write",
+    "typecheck": "bun tsc",
+    "test": "bun test --bail"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx nano-staged",
+    "pre-push": "bun run typecheck && bun run test"
+  },
+  "nano-staged": {
+    "*.{js,json,md}": "bun prettier --write"
+  },
   "dependencies": {
     "typograf": "^7.4.1"
   },
@@ -11,19 +25,11 @@
     "prettier": "^3.3.2",
     "typescript": "^5.5.2"
   },
-  "nano-staged": {
-    "*.{js,json,md}": "bun --bun prettier --write"
-  },
   "prettier": {},
-  "scripts": {
-    "set:hooks": "bunx --bun simple-git-hooks",
-    "format": "bun --bun prettier . --write",
-    "typecheck": "bun --bun tsc",
-    "test": "bun test --bail"
-  },
-  "simple-git-hooks": {
-    "pre-commit": "bunx --bun nano-staged",
-    "pre-push": "bun run typecheck && bun run test"
-  },
-  "type": "module"
+  "type": "module",
+  "keywords": [
+    "markdown-it",
+    "markdown-it-plugin",
+    "typograf"
+  ]
 }

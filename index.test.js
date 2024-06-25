@@ -13,5 +13,5 @@ test("Quotes", () => {
     },
   });
 
-  expect(md.renderInline('"test"')).toBe("«test»");
+  expect(md.render('"test"')).toBe("<p>«test»</p>\n");
 });
