@@ -16,7 +16,7 @@
   },
   "prettier": {},
   "scripts": {
-    "postinstall": "bunx --bun simple-git-hooks",
+    "set:hooks": "bunx --bun simple-git-hooks",
     "format": "bun --bun prettier . --write",
     "typecheck": "bun --bun tsc",
     "test": "bun test --bail"
