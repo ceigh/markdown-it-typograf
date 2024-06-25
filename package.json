@@ -6,7 +6,8 @@
   },
   "devDependencies": {
     "@types/markdown-it": "^14.1.1",
-    "prettier": "^3.3.2"
+    "prettier": "^3.3.2",
+    "typescript": "^5.5.2"
   },
   "nano-staged": {
     "*.{js,json,md}": "bun --bun prettier --write"
@@ -14,10 +15,12 @@
   "prettier": {},
   "scripts": {
     "postinstall": "bunx --bun simple-git-hooks",
-    "format": "bun --bun prettier . --write"
+    "format": "bun --bun prettier . --write",
+    "typecheck": "bun --bun tsc"
   },
   "simple-git-hooks": {
-    "pre-commit": "bunx --bun nano-staged"
+    "pre-commit": "bunx --bun nano-staged",
+    "pre-push": "bun typecheck"
   },
   "type": "module"
 }
