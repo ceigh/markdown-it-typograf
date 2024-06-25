@@ -12,5 +12,5 @@
     "isolatedModules": true,
     "types": ["markdown-it"]
   },
-  "files": ["index.js"]
+  "files": ["index.js", "index.test.js"]
 }

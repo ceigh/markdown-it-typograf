@@ -5,7 +5,9 @@
     "typograf": "^7.4.1"
   },
   "devDependencies": {
+    "@types/bun": "^1.1.5",
     "@types/markdown-it": "^14.1.1",
+    "markdown-it": "^14.1.0",
     "prettier": "^3.3.2",
     "typescript": "^5.5.2"
   },
@@ -16,11 +18,12 @@
   "scripts": {
     "postinstall": "bunx --bun simple-git-hooks",
     "format": "bun --bun prettier . --write",
-    "typecheck": "bun --bun tsc"
+    "typecheck": "bun --bun tsc",
+    "test": "bun test --bail"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx --bun nano-staged",
-    "pre-push": "bun typecheck"
+    "pre-push": "bun run typecheck && bun run test"
   },
   "type": "module"
 }
