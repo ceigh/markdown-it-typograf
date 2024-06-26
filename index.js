@@ -1,12 +1,14 @@
 import Typograf from "typograf";
 
 /**
- * @typedef {object} Options
- * @property {import('typograf').TypografPrefs} [typografOptions] - Typograf options, defaults to `{ locale: 'ru' }`.
- * @property {(tp: import('typograf').default) => void} [typografSetup] - Function that allows to customize typograf programmatically.
+ * @typedef {import('typograf').TypografPrefs} TypografPrefs
+ *
+ * @typedef {object} PluginOptions
+ * @property {TypografPrefs} [typografOptions] - Typograf options, defaults to `{ locale: 'ru' }`.
+ * @property {(tp: Typograf) => void} [typografSetup] - Function that allows to customize typograf programmatically.
  */
 
-/** @type {import('markdown-it').PluginWithOptions<Options>} */
+/** @type {import('markdown-it').PluginWithOptions<PluginOptions>} */
 export default function (md, opts) {
   const tp = new Typograf(opts?.typografOptions || { locale: "ru" });
   opts?.typografSetup?.(tp);
