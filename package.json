@@ -1,22 +1,17 @@
 {
   "name": "markdown-it-typograf",
-  "module": "index.js",
+  "version": "0.1.0",
   "scripts": {
-    "set:hooks": "bunx simple-git-hooks",
     "dev": "bun test --watch",
     "format": "bun prettier . --write",
-    "typecheck": "bun tsc",
-    "test": "bun test --bail"
+    "typecheck": "bun tsc --noEmit",
+    "test": "bun test --bail",
+    "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly",
+    "prepack": "bun run build:dts"
   },
-  "simple-git-hooks": {
-    "pre-commit": "bunx nano-staged",
-    "pre-push": "bun run typecheck && bun run test"
-  },
-  "nano-staged": {
-    "*.{js,json,md}": "bun prettier --write"
-  },
-  "dependencies": {
-    "typograf": "^7.4.1"
+  "peerDependencies": {
+    "markdown-it": "^14",
+    "typograf": "^7"
   },
   "devDependencies": {
     "@types/bun": "^1.1.5",
@@ -25,11 +20,29 @@
     "prettier": "^3.3.2",
     "typescript": "^5.5.2"
   },
+  "nano-staged": {
+    "*.{js,json,md}": "bun prettier --write"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bunx nano-staged",
+    "pre-push": "bun run typecheck && bun run test"
+  },
+  "files": [
+    "./index.js",
+    "./index.d.ts"
+  ],
+  "engines": {
+    "node": ">=14"
+  },
   "prettier": {},
   "type": "module",
+  "description": "Typograf integration for markdown-it",
   "keywords": [
-    "markdown-it",
     "markdown-it-plugin",
     "typograf"
-  ]
+  ],
+  "homepage": "https://ceigh.github.io/markdown-it-typograf",
+  "license": "MIT",
+  "author": "Artem Lebzak (https://ceigh.com)",
+  "repository": "ceigh/markdown-it-typograf"
 }
