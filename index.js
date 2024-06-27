@@ -9,9 +9,9 @@ import Typograf from "typograf";
  */
 
 /** @type {import('markdown-it').PluginWithOptions<PluginOptions>} */
-export default function (md, opts) {
-  const tp = new Typograf(opts?.typografOptions || { locale: "ru" });
-  opts?.typografSetup?.(tp);
+export default function (md, opts = {}) {
+  const tp = new Typograf(opts.typografOptions || { locale: "ru" });
+  if (opts.typografSetup) opts.typografSetup(tp);
 
   /** @type {(token: import('markdown-it/lib/token.mjs').default) => void} */
   function execute(token) {
@@ -23,7 +23,7 @@ export default function (md, opts) {
     }
   }
 
-  md.core.ruler.push("typograf", ({ tokens }) => {
+  md.core.ruler.push("typograf", function ({ tokens }) {
     tokens.forEach(execute);
     return true;
   });

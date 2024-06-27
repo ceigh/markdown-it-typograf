@@ -5,7 +5,7 @@
     "dev": "bun test --watch",
     "format": "bun prettier . --write",
     "typecheck": "bun tsc --noEmit",
-    "test": "bun test --bail",
+    "test": "bun test --bail && bunx size-limit",
     "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly",
     "prepack": "bun run build:dts"
   },
@@ -14,6 +14,7 @@
     "typograf": "^7"
   },
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^11.1.4",
     "@types/bun": "^1.1.5",
     "@types/markdown-it": "^14.1.1",
     "markdown-it": "^14.1.0",
@@ -34,6 +35,12 @@
   "engines": {
     "node": ">=14"
   },
+  "size-limit": [
+    {
+      "limit": "1000 B",
+      "path": "./index.js"
+    }
+  ],
   "prettier": {},
   "type": "module",
   "description": "Typograf integration for markdown-it",
