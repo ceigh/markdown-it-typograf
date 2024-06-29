@@ -8,7 +8,7 @@ Check [demo](https://ceigh.github.io/markdown-it-typograf).
 # Setup
 
 ```sh
-npm install typograf markdown-it-typograf
+npm install markdown-it-typograf
 ```
 
 # Usage
