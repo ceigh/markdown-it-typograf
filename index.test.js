@@ -2,7 +2,7 @@
 
 import { describe, test, expect } from "bun:test";
 import markdownit from "markdown-it";
-import markdownItTypograf from "./index.js";
+import markdownitTypograf from "./index.js";
 
 /**
  * @param {import('markdown-it').Options} [options]
@@ -10,7 +10,7 @@ import markdownItTypograf from "./index.js";
  * @returns {markdownit}
  */
 function getMd(options = {}, pluginOptions) {
-  return markdownit(options).use(markdownItTypograf, {
+  return markdownit(options).use(markdownitTypograf, {
     typografOptions: {
       locale: "ru",
       disableRule: "*",
@@ -26,7 +26,7 @@ const CASES = [["!=", "≠"]];
 describe("configuration", () => {
   test("typografOptions is optional", () => {
     expect(() => {
-      const md = markdownit().use(markdownItTypograf, {
+      const md = markdownit().use(markdownitTypograf, {
         typografSetup(tp) {
           tp.disableRule("*");
         },
@@ -37,7 +37,7 @@ describe("configuration", () => {
 
   test("typografSetup is optional", () => {
     expect(() => {
-      const md = markdownit().use(markdownItTypograf, {
+      const md = markdownit().use(markdownitTypograf, {
         typografOptions: { locale: "ru", disableRule: "*" },
       });
       md.render(CASES[0][0]);
@@ -46,13 +46,13 @@ describe("configuration", () => {
 
   test("plugin options is optional", () => {
     expect(() => {
-      const md = markdownit().use(markdownItTypograf);
+      const md = markdownit().use(markdownitTypograf);
       md.render(CASES[0][0]);
     }).not.toThrow();
   });
 
   test("typografOptions in use", () => {
-    const md = markdownit().use(markdownItTypograf, {
+    const md = markdownit().use(markdownitTypograf, {
       typografOptions: {
         locale: "ru",
         disableRule: "*",
@@ -62,7 +62,7 @@ describe("configuration", () => {
   });
 
   test("typografSetup in use", () => {
-    const md = markdownit().use(markdownItTypograf, {
+    const md = markdownit().use(markdownitTypograf, {
       typografSetup(tp) {
         tp.disableRule("*");
       },
