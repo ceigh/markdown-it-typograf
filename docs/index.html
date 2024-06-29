@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Typograf for markdown-it demo" />
+    <title>markdown-it-typograf demo</title>
+
+    <style>
+      :root {
+        --black: #050505;
+        --white: #dfdfdf;
+
+        background: var(--black);
+        color: var(--white);
+        font-family: system-ui, sans-serif;
+      }
+
+      @media (prefers-color-scheme: light) {
+        :root {
+          background: var(--white);
+          color: var(--black);
+        }
+      }
+
+      body {
+        margin: 2rem;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .inner {
+        display: flex;
+        flex-direction: column;
+        min-height: calc(100dvh - 4rem);
+        max-width: 80rem;
+        margin: 0 auto;
+      }
+
+      .sections {
+        display: grid;
+        flex-grow: 1;
+        gap: 2rem;
+      }
+
+      @media (min-width: 768px) {
+        .sections {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .sections section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      #input {
+        all: unset;
+        font-family: monospace;
+      }
+
+      #output {
+        font-family: serif;
+      }
+
+      #input,
+      #output {
+        padding: 1rem;
+        flex-grow: 1;
+        border: 1px solid #333;
+        font-size: 1.1rem;
+        min-height: 20rem;
+      }
+    </style>
+
+    <script type="importmap">
+      {
+        "imports": {
+          "markdown-it": "https://esm.sh/markdown-it@^14",
+          "typograf": "https://esm.sh/typograf@^7",
+          "markdown-it-typograf": "https://esm.sh/markdown-it-typograf@^0"
+        }
+      }
+    </script>
+
+    <script type="module">
+      import markdownit from "markdown-it";
+      import markdownItTypograf from "markdown-it-typograf";
+
+      const md = markdownit().use(markdownItTypograf, {
+        typografSetup(tp) {
+          tp.enableRule("common/number/digitGrouping");
+        },
+      });
+
+      const inputEl = document.getElementById("input");
+      const outputEl = document.getElementById("output");
+
+      inputEl.oninput = (e) => {
+        outputEl.innerHTML = md.render(e.target.value);
+      };
+
+      // Initial render
+      const event = new Event("input");
+      inputEl.dispatchEvent(event);
+    </script>
+  </head>
+
+  <body>
+    <div class="inner">
+      <h1>
+        <a href="https://github.com/typograf/typograf" target="_blank">
+          Typograf
+        </a>
+        for
+        <a href="https://github.com/markdown-it/markdown-it" target="_blank">
+          markdown-it
+        </a>
+        demo
+      </h1>
+
+      <div class="sections">
+        <section>
+          <h2>Input</h2>
+          <textarea id="input" aria-label="Input">
+Привет! Это тестовый текст для проверки работы типографа. Здесь будут продемонстрированы различные типографические особенности.
+
+1. Прямые кавычки: "Тестовая строка".
+2. Прямые кавычки внутри текста с кавычками: "Вот пример 'вложенных кавычек'".
+3. Дефисы и тире: текст-тире - это длинное тире.
+4. Многоточие: текст... продолжается.
+5. Математические знаки: x >= 4.
+6. Пробелы перед и после знаков препинания: да,точно.
+7. Градусы: 10C.
+8. Спецсимволы: (c), (r), (tm).
+9. Разделители тысяч: 1000; 10000; 100000.</textarea
+          >
+        </section>
+
+        <section>
+          <h2>Output</h2>
+          <div id="output"></div>
+        </section>
+      </div>
+
+      <p>
+        <a href="https://github.com/ceigh/markdown-it-typograf" target="_blank"
+          >Source</a
+        >
+      </p>
+    </div>
+  </body>
+</html>
