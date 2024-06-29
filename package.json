@@ -8,7 +8,7 @@
     "typecheck": "bun tsc --noEmit",
     "test": "bun run typecheck && bun test --bail && bunx size-limit",
     "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly",
-    "prepack": "bun run build:dts"
+    "prepack": "bun run test && bun run build:dts"
   },
   "peerDependencies": {
     "markdown-it": "^14",
