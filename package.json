@@ -26,9 +26,9 @@
     "*.{js,json,md}": "bun prettier --write"
   },
   "simple-git-hooks": {
-    "pre-commit": "bunx nano-staged",
-    "pre-push": "bun run test"
+    "pre-commit": "bunx nano-staged"
   },
+  "module": "./index.js",
   "files": [
     "./index.js",
     "./index.d.ts"
