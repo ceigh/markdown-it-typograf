@@ -1,21 +1,15 @@
-name: Test
+name: Release
 
 on:
   push:
     branches:
       - master
-
-  pull_request:
-    branches:
-      - master
+    tags:
+      - "v*"
 
 jobs:
-  test:
-    strategy:
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
-
-    runs-on: ${{ matrix.os }}
+  release:
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
@@ -27,3 +21,7 @@ jobs:
 
       - name: Test
         run: bun run test
+
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
