@@ -1,12 +1,12 @@
 {
   "name": "markdown-it-typograf",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dev": "bun test --watch",
     "dev:docs": "bunx live-server@1.2.1 --port=3000 --no-browser ./docs",
     "format": "bun prettier . --write",
     "test": "bun tsc --noEmit && bun test --bail && bunx size-limit",
-    "prepack": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly"
+    "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly"
   },
   "peerDependencies": {
     "markdown-it": "^14",
