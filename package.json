@@ -21,7 +21,7 @@
     "typescript": "^5.5.2"
   },
   "nano-staged": {
-    "*.{js,json,md}": "bun prettier --write"
+    "*.{js,html,json,md}": "bun prettier --write"
   },
   "simple-git-hooks": {
     "pre-commit": "bunx nano-staged"

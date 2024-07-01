@@ -35,16 +35,12 @@
       }
 
       .inner {
-        display: flex;
-        flex-direction: column;
-        min-height: calc(100dvh - 4rem);
         max-width: 80rem;
         margin: 0 auto;
       }
 
       .sections {
         display: grid;
-        flex-grow: 1;
         gap: 2rem;
       }
 
@@ -60,8 +56,14 @@
       }
 
       #input {
-        all: unset;
+        background: none;
+        color: inherit;
+        resize: none;
         font-family: monospace;
+      }
+
+      #input:focus {
+        outline: none;
       }
 
       #output {
@@ -74,7 +76,7 @@
         flex-grow: 1;
         border: 1px solid #333;
         font-size: 1.1rem;
-        min-height: 20rem;
+        min-height: 30rem;
       }
     </style>
 
