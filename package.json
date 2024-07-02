@@ -9,16 +9,16 @@
     "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly"
   },
   "peerDependencies": {
-    "markdown-it": "^14",
-    "typograf": "^7"
+    "markdown-it": "^14.1.0",
+    "typograf": "^7.4.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "^11.1.4",
-    "@types/bun": "^1.1.5",
+    "@types/bun": "^1.1.6",
     "@types/markdown-it": "^14.1.1",
     "markdown-it": "^14.1.0",
     "prettier": "^3.3.2",
-    "typescript": "^5.5.2"
+    "typescript": "^5.5.3"
   },
   "nano-staged": {
     "*.{js,html,json,md}": "bun prettier --write"
