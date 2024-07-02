@@ -4,8 +4,8 @@
   "scripts": {
     "dev": "bun test --watch",
     "dev:docs": "bunx live-server@1.2.1 --port=3000 --no-browser ./docs",
-    "format": "bun prettier . --write",
-    "test": "bun tsc --noEmit && bun test --bail && bunx size-limit",
+    "format:fix": "bun prettier --write .",
+    "test": "bun prettier --check . && bun tsc --noEmit && bun test --bail && bunx size-limit",
     "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly"
   },
   "peerDependencies": {
