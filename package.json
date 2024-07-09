@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-typograf",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "dev": "bun test --watch",
     "dev:docs": "bunx live-server@1.2.1 --port=3000 --no-browser ./docs",
@@ -26,6 +26,7 @@
   "simple-git-hooks": {
     "pre-commit": "bunx nano-staged"
   },
+  "main": "./index.js",
   "files": [
     "./index.js",
     "./index.d.ts"
