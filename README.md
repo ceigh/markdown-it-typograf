@@ -49,6 +49,5 @@ console.log(md.render("0 != 1")); // <p>0 ≠ 1</p>\n
 
 ```sh
 bun install
-bunx simple-git-hooks
 bun run dev
 ```
