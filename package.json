@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-typograf",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "scripts": {
     "dev": "bun test --watch",
     "dev:docs": "bunx live-server@1.2.1 --port=3000 --no-browser ./docs",
