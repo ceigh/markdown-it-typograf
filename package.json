@@ -41,5 +41,7 @@
   "homepage": "https://ceigh.github.io/markdown-it-typograf",
   "license": "MIT",
   "author": "Artem Lebzak (https://ceigh.com)",
-  "repository": "ceigh/markdown-it-typograf"
+  "repository": {
+    "url": "git+https://github.com/ceigh/markdown-it-typograf.git"
+  }
 }
