@@ -37,4 +37,4 @@ jobs:
         run: bun run build:dts
 
       - name: Publish
-        run: npm stage publish --provenance
+        run: npm publish --provenance
