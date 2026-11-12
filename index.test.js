@@ -5,9 +5,9 @@ import markdownit from "markdown-it";
 import markdownitTypograf from "./index.js";
 
 /**
- * @param {import('markdown-it').Options} [options]
+ * @param {import('markdown-it').MarkdownItOptions} [options]
  * @param {import("./index.js").PluginOptions} [pluginOptions]
- * @returns {markdownit}
+ * @returns {import('markdown-it').MarkdownIt}
  */
 function getMd(options = {}, pluginOptions) {
   return markdownit(options).use(markdownitTypograf, {

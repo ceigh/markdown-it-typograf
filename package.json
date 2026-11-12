@@ -1,6 +1,6 @@
 {
   "name": "markdown-it-typograf",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "scripts": {
     "dev": "bun test --watch",
     "dev:docs": "bunx live-server@1.2.1 --port=3000 --no-browser ./docs",
@@ -9,14 +9,13 @@
     "build:dts": "bun tsc --project ./tsconfig.build.json --declaration --emitDeclarationOnly"
   },
   "peerDependencies": {
-    "markdown-it": "^14.3.1",
+    "markdown-it": "^15.0.0",
     "typograf": "^7.4.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "13.0.3",
     "@types/bun": "1.4.1",
-    "@types/markdown-it": "14.2.0",
-    "markdown-it": "14.3.1",
+    "markdown-it": "15.0.3",
     "prettier": "3.9.6",
     "typescript": "7.0.2"
   },

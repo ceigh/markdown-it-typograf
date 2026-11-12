@@ -8,12 +8,16 @@ import Typograf from "typograf";
  * @property {(tp: Typograf) => void} [typografSetup] - Function that allows to customize typograf programmatically.
  */
 
-/** @type {import('markdown-it').PluginWithOptions<PluginOptions>} */
+/**
+ * @param {import('markdown-it').MarkdownIt} md
+ * @param {PluginOptions} [opts]
+ * @returns {void}
+ */
 const plugin = (md, opts = {}) => {
   const tp = new Typograf(opts.typografOptions || { locale: "ru" });
   if (opts.typografSetup) opts.typografSetup(tp);
 
-  /** @type {(token: import('markdown-it/lib/token.mjs').default) => void} */
+  /** @type {(token: import('markdown-it').Token) => void} */
   function execute(token) {
     if (token.children) {
       token.children.forEach(execute);
