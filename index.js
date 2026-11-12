@@ -9,7 +9,7 @@ import Typograf from "typograf";
  */
 
 /** @type {import('markdown-it').PluginWithOptions<PluginOptions>} */
-export default function (md, opts = {}) {
+const plugin = (md, opts = {}) => {
   const tp = new Typograf(opts.typografOptions || { locale: "ru" });
   if (opts.typografSetup) opts.typografSetup(tp);
 
@@ -27,4 +27,5 @@ export default function (md, opts = {}) {
     tokens.forEach(execute);
     return true;
   });
-}
+};
+export default plugin;
